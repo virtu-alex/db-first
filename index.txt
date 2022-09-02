@@ -1,0 +1,65 @@
+<!-- COSA POSSIAMO SALVARE IN UN DB?
+1.NUMERI Numeri Interi (TINYINT, SMALLINT MEDIUMINT, INT, BIGINT)
+    1.a TINYINT UTILIZZA SOLO UN BYTE PER SALVARE NUMERI CHE VANNO DA -128 A 127 (ANCHE PER I BOOLEANI)
+    2.b (SMALLINT E MEDIUMINT) OCCUPANO RISPETTIVAMENTE 2 E 3 BYTES
+    3.c (INT) utilizza 4 bytes per numeri molto grandi
+    4.d (BIGINT) corrisponde a un INT con il doppio dei Bytes
+    NUMERI CON LA VIRGOLA (FLOAT(I,D) DOUBLE(I,D) E DECIMAL(I, D))   I = NUMERO TOTALE MASSIMO DI CIFRE   D = QUANTI DECIMALI?
+
+2.STRINGHE
+    2.a (VARCHAR(NUMERO)) PERMETTE 255 CARATTERI = 1 BYTE
+    2.b (TEXT) FINO A 65535 CARATTERI (USATO PER DESCRIZIONI PRODOTTO)
+    2.c (MEDIUMTEXT) 16MB
+    2.d (LONGTEXT) 4.2GB USATO PER SALVARE PORZIONI DI HTML O LUNGHI TESTI
+
+
+3.DATE
+    3a. (DATE TIME) MEMORIZZA DATA E ORA
+    3b. (DATE) SOLO LA DATA
+    3c. (TIME) SOLO L'ORARIO
+    3d. (YEAR) SOLO L'ANNO
+    3e. (TIMESTAMP) PUO' AVERE DIVERSI FORMATI E LO STAMPA IN MILLISECONDI DALL'1 GENNAIO 1970
+
+
+ALTRI MENO UTILIZZATI (DATI GEOMETRICI/GEOGRAFICI  ,   DATI BINARY(BLOB))
+
+
+NULL = (superfluo)
+NOT_NULL = (necessario)
+
+PRIMARY KEY E' OBBLIGATORIO = COLONNA ID
+
+AUTO_INCREMENT = IL VALORE DELLA COLONNA INCREMENTA A OGNI NUOVO RECORD, SOLO PER COLONNE DI TIPO NUMERO (USATO PER GLI ID E OGNI VOLTA CHE SI AGGIUNGE UNA NUOVA RIGA IN AUTOMATICA +1 RISPETTO ALLA RIGA PRECEDENTE)
+
+UNIQUE = INDICA CHE I VALORI DI QUELLA COLONNA DEVONO ESSERE UNICI (VIENE PASSATO AUTOMATICAMENTE ALLA PRIMARY KEY)
+
+-->
+
+
+
+
+                                                    ------- DATABASE AUTO -------
+
+COLONNE :                |               TIPO DATO :              |                 ATTRIBUTI :              |         INDICE :        |
+Id                       |                 BIGINT                 |     UNIQUE, NOT NULL, AUTO INCREMENT	 |       PRIMARY KEY
+Model                    |               VARCHAR(30)	          |                 NOT NULL	             | 
+License plate            |                CHAR(7)	              |               UNIQUE, NOT NULL	         |
+Generation               |                SMALLINT	              |                 NOT NULL	             |
+Year	                 |                  YEAR	              |                       NOT NULL	         |  
+Modifiers                |                VARCHAR(15)	          |                 NOT NULL	             |
+Doors    	             |                 TINYINT	              |                     NULL	             |
+Series	                 |                 VARCHAR(20)	          |                 NOT NULL	             |
+Price we buy             |                 FLOAT(8,2)             |             	NOT NULL	             |  
+Price we sell            |                 FLOAT(8,2)             |                 NOT NULL	             |  
+Car body type   	     |                 VARCHAR(15)	          |                     NULL	             |
+Condition	             |                  CHAR(5)	              |                   DEFAULT: A	         |  
+Warehouse	             |                 TINYINT(1)	          |                   DEFAULT: 1	         |
+Immatricolation place	 |                 VARCHAR(2)	          |                     NULL	             |
+Used	                 |                 TINYINT(1)	          |                   DEFAULT: 0	         |  
+Fuel Type		         |                 VARCHAR(7)             |                  NOT NULL                |
+Electric car             |                 TINYINT(1)	          |                   DEFAULT: 1             |
+Vehicle Features         |                   TEXT                 |                      NULL                |
+Vehicle Details          |                   TEXT                 |                      NULL                |
+Vehicle Colour           |                 VARCHAR(12)            |                  NOT NULL                |
+Wheels                   |                 TINYINT(4)             |                   DEFAULT: 1             |
+KMs already made         |                  MEDIUMINT             |                  NOT NULL                |
